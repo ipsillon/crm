@@ -21,7 +21,11 @@
                 </div>
                 
                 <hr>
-                 
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                @endif 
                 @if ($prospects->count())
                 <table class="table table-hover">
                     <thead>

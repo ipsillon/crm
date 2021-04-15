@@ -26,7 +26,7 @@ class StoreProspectRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|unique:prospects',
-            'profile_image'=>'nullable|mimes:png, jpg, jpeg|max:2000'
+            'profile-image'=>'nullable|mimes:png, jpg, jpeg|max:2000'
         ];
     }
 }

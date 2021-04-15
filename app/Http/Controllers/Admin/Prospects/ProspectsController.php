@@ -39,8 +39,15 @@ class ProspectsController extends Controller
      */
     public function store(StoreProspectRequest $request)
     {
-        // post request store
+        $prospect = Prospect::create($request->only('name, email'));
 
+        // post request store
+        if($request->hasFile('profile-image')){
+            $path = $request->profile_image->store('public/prospects/profile/images');
+            $prospect->update(['profile-image'=>$path]);
+        }
+
+        return redirect()->route('admin.prospects.dashboard')->with('success', 'Sucessfully created a new prospect');
     }
 
     /**
